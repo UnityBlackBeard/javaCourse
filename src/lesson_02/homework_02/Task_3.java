@@ -32,6 +32,5 @@ public class Task_3 {
         System.out.println("Следовательно голодный Вася съедает один банан на "+diff+" минуты ИЛИ где-то на "+diffPerc +"% быстрее");
         System.out.println("ч.т.д.");
 
-
     }
 }

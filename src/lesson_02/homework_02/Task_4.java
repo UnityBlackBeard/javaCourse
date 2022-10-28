@@ -3,7 +3,6 @@ package lesson_02.homework_02;
 public class Task_4 {
     public static void main(String[] args) {
         //Закомментируй часть кода, чтобы на экран вывелось сообщение "sum = 12"
-
         int a = 3;
         //int a = 10;
         int b = 6;

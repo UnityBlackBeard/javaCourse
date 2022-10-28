@@ -12,7 +12,5 @@ public class Task_2 {
         //выводим площадь в консоль
         System.out.println("Площадь квадрата="+a*b);
 
-
-
     }
 }
