@@ -17,7 +17,7 @@ public class Task_5 {
             int result = -a + b - c + d;
 
             System.out.println(result);
-            ////111
+            ////1112
     }
 
 
