@@ -1,0 +1,5 @@
+# Project exclude paths
+/out/production/javaCourse/lesson_01
+/out/production/javaCourse/lesson_02/PrimitiveTypes.class
+/src/lesson_01
+/src/lesson_02/PrimitiveTypes.java
