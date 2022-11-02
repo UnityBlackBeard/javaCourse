@@ -1,5 +1,7 @@
 package lesson_02.homework_03;
 
+import java.util.Scanner;
+
 public class Task_2 {
 //    Работа светофора для пешеходов запрограммирована следующим образом:
 //    в начале каждого часа в течение трех минут горит зелёный сигнал,
@@ -25,7 +27,29 @@ public class Task_2 {
 //    Пример для числа 5:
 //    зелёный
 
+    public static void main(String[] args) {
 
+        String yellow="Желтый";
+        String red="Красный";
+        String green="Зеленый";
+double iniT=0.00;
+
+
+        StringBuilder color=new StringBuilder();
+        Scanner in = new Scanner(System.in);
+        System.out.println("сколько минут прошло?");
+        double t= in.nextDouble();
+
+        if ((iniT+t)< 3.00){
+            System.out.println(green);
+        } else if (((iniT+t)>=3.00) && ((iniT+t)<4.00)) {
+            System.out.println(yellow);
+
+        } else if (((iniT+t)>=4.00) && ((iniT+t)<=5.00)) {
+            System.out.println(red);
+        }
+
+    }
 
 
 

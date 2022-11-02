@@ -1,5 +1,7 @@
 package lesson_02.homework_03;
 
+import java.util.Scanner;
+
 public class Task_3 {
 //    Написать программу, которая, в зависимости от того числа, которое мы ей подадим (год)
 //, будет определять количество дней в году. Результат вывести на экран в следующем виде:
@@ -17,6 +19,37 @@ public class Task_3 {
 //    Так, годы 1700, 1800 и 1900 не являются високосными, так как они кратны 100 и не кратны 400.
 //    Годы 1600 и 2000 - високосные, так как они кратны 100 и кратны 400.
 //    Годы 2100, 2200 и 2300 - не високосные.
+public static void main(String[] args) {
+    int daysq, year;
+    String ans;
+    String sYear;
 
+do{
+    System.out.println("Введите год (пример формата 1995)");
+    Scanner in = new Scanner(System.in);
+    sYear= in.next();
 
+    if (sYear.length() != 4) {
+        System.out.println("неверный формат ввода, повторите ввод");
+        ans="y";
+    } else {
+        year = Integer.parseInt(sYear);
+        daysq = daysQuentity(year);
+        System.out.println("количество дней в этом году: " + daysq);
+        System.out.println("Попробовать еще раз? y/n");
+        ans = in.next();
+    }
+}
+while(ans.equals("y"));}
+
+    public static int daysQuentity (int year){
+        int days;
+        if ((year > 1584) &&
+                ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))) {
+           days = 366;
+        } else {
+            days = 365;
+        }
+        return days;
+    }
 }
