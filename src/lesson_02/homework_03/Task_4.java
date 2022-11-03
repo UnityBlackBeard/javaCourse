@@ -13,11 +13,9 @@ public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     int number = in.nextInt();
     if (number>0){
-        number*=2;
-        System.out.println(number);
+        System.out.println(number*=2);
     } else if (number<0) {
-        number++;
-        System.out.println(number);
+        System.out.println(number+=1);
     }else{
         System.out.println(number);
     }
