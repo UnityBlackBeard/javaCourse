@@ -3,77 +3,139 @@ package Lesson_05.homework_05;
 import Lesson_05.Contact;
 import Lesson_05.PhoneBook;
 
-import javax.swing.*;
+
 import java.util.Scanner;
 
 public class Task_1 {
     //сделать метод поиска, переименования и удаления контактов
     public static void main(String[] args) {
-        System.out.println("Выберите действие" +
-                "1- для поиска контакта" +
-                "2-для редактирования" +
-                "3-для удаления");
-        Scanner in = new Scanner(System.in);
-        String search = in.next();
 
-        switch (Integer.parseInt(search)) {
-            case 1 -> searchContact();
-            case 2 -> EditContact();
-            case 3 -> deleteContact();
-            default -> System.out.println("Неверный параметр");
-        }
+        Contact ivan = new Contact("Ivan", "+79591122336","mail@mail.ru");
+        Contact Vasya = new Contact("Vasya", "+79591122458","mailq@mail.ru");
+        Contact olga = new Contact("Olga", "+79591127456","maila@mail.ru");
+        Contact finist = new Contact("Finist", "+79599988546","mailf@mail.ru");
+        Contact boris = new Contact("Boris", "+79599631245","mailc@mail.ru");
+
+        PhoneBook phoneBook=new PhoneBook();
+        phoneBook.addContact(ivan);
+        phoneBook.addContact(Vasya);
+        phoneBook.addContact(olga);
+        phoneBook.addContact(finist);
+        phoneBook.addContact(boris);
+
+        String search;
+        int index=-1;
+
+        do {
+
+            System.out.println("Выберите действие \n" +
+                    "1- для поиска контакта \n" +
+                    "2-для редактирования \n" +
+                    "3-для удаления \n" +
+                    "0-для выхода");
+            Scanner in = new Scanner(System.in);
+            search = in.next();
+
+            switch (Integer.parseInt(search)) {
+                case 0 -> {
+                }
+                case 1 -> index = searchContact(phoneBook);
+                case 2 -> EditContact(phoneBook.contacts[index]);
+                case 3 -> deleteContact(phoneBook, index);
+                default -> System.out.println("Неверный параметр");
+            }
+        }while (Integer.parseInt(search)!=0);
 
     }
 
 
+    public static int searchContact(PhoneBook pb) {
 
-
-
-    public static void searchContact() {
         System.out.println("Введите номер или имя для поиска");
         Scanner in = new Scanner(System.in);
-        String searchString = in.next();
+        String searchString = in.next().toLowerCase();
 
-        Contact contact;
+        int contactIndex = 0;
 
-        if (searchString.startsWith("+7")) {  //тут в идеале нужно больше условий на случай если номер вводится без кода страны
-            contact = contactRequest(false, true, searchString);
+try {
+    if (searchString.startsWith("+7")) {  //тут в идеале нужно больше условий на случай если номер вводится без кода страны
+        contactIndex = contactRequest(false, true, pb, searchString);
 
-        } else if (isAlpha(searchString)) {
-            contact = contactRequest(true, false, searchString);
+    } else if (isAlpha(searchString)) {
+        contactIndex = contactRequest(true, false, pb, searchString);
 
-        } else {
-            System.out.println("Неверный формат ввода");
+    } else {
+        System.out.println("Неверный формат ввода");
+    }
+
+
+    getContactProperties(pb.contacts[contactIndex]);
+}  catch(NullPointerException e)
+{
+    System.out.print("Все накрылось болтом, контакта или не было или он удален. Шеф, все пропало!");
+}
+
+        return contactIndex;
+    }
+
+    public static void EditContact(Contact ct) {
+
+        System.out.println("Введите свойство для изменения \n" +
+                "1- Имя \n" +
+                "2-номер \n" +
+                "3-мыло");
+        Scanner in = new Scanner(System.in);
+        int paramName = in.nextInt();
+
+        System.out.println("Введите новое значение свойства");
+        String paramValue = in.next();
+
+        switch (paramName) {
+            case 1 -> {
+                ct.setName(paramValue);
+                System.out.println("новое имя контакта: "+paramValue);
+            }
+            case 2 -> ct.setPhoneNumber(paramValue);
+            case 3 -> ct.setEmail(paramValue);
+            default -> System.out.println("Неверный параметр");
         }
-    }
-
-    public static void EditContact() {
-    }
-
-    public static void deleteContact() {
+        if(paramName<4){
+            getContactProperties(ct);
+        }
 
     }
 
-    public static Contact contactRequest(boolean n, boolean ph, String searchString){
+    public static void deleteContact(PhoneBook pb, int index) {
+
+        pb.contacts[index] = null;
+        System.out.println("Контакт удален");
+    }
+
+    public static void getContactProperties(Contact ct) {
+        System.out.println("Перечень свойств контакта "+ct.getName()+": \n телефон "+
+                ct.getPhoneNumber()+"\n мыло "+ct.getEmail());
+    }
+
+    public static int contactRequest(boolean n, boolean ph, PhoneBook pb, String searchString){
 
 
+        int res=0;
 
-       PhoneBook book=null;
-        Contact contact=null;
-        for (int i = 0; i <book.getContacts().length; i++) {
-            contact=book.getContacts()[i];
+        for (int i = 0; i <pb.contacts.length; i++) {
+             Contact contact=pb.contacts[i];
             if(n){
-                if(contact.getName().equals(searchString)){
-                     return contact;
+                if(contact.getName().toLowerCase().equals(searchString)){
+                     res = i;
+                     break;
             }else if (ph){
                 if(contact.getPhoneNumber().equals(searchString)){
-                    return contact;
+                    res =i;
+                    break;
                 }
                 }
             }
-
         }
-        return contact;
+        return res;
     }
 
     public static boolean isAlpha(String name) {
