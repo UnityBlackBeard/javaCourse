@@ -10,7 +10,7 @@ public class DeckOfCardsImpl implements DeckOfCards {
     Card [] cards=new Card[52];
 
 
-    public DeckOfCardsImpl(Card[] cards) {
+    public DeckOfCardsImpl() {
         cards[0]=new CardImpl("Двойка Трефа", 2);
         cards[1] = new CardImpl("Двойка Черви", 2);
         cards[2] = new CardImpl("Двойка Бубны", 2);
