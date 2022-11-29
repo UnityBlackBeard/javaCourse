@@ -2,7 +2,7 @@ package lesson_10.hash_code;
 
 import java.util.Objects;
 
-public class Coin {
+public class Coin implements Comparable {
 
     private int nominal;
     private double diameter;
@@ -82,4 +82,20 @@ public class Coin {
     public void setYear(int year) {
         this.year = year;
     }
-}
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
+
+//    public boolean
+//    @Override
+//    public int compareTo(Coin o) {
+
+
+
+    }
+
+
+

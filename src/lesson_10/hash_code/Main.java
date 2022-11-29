@@ -45,12 +45,13 @@ public class Main {
         }
 
 
+
        // System.out.println();
         TreeSet<Integer>treeSet= new TreeSet<>(new ReverseInteger());
-        treeSet.add(111);
-        treeSet.add(222);
-        treeSet.add(333);
-        treeSet.add(777);
+        treeSet.add(20);
+        treeSet.add(30);
+        treeSet.add(18);
+        treeSet.add(25);
         treeSet.add(1);
         treeSet.add(777);
 
