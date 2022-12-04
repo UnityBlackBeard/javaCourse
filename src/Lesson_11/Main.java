@@ -3,6 +3,7 @@ package Lesson_11;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 
 public class Main {
 
@@ -46,10 +47,11 @@ public class Main {
 
         try {
             Files.copy(new File("/home/rg.jpg").toPath(), new File("usr/bin/rhhh.jpg").toPath());
-        } catch (NoSuchFieldException e) {
+        } catch (NoSuchFileException e) {
             e.printStackTrace();
             System.out.println("Ошибка произошла, потому что такого файла нет");
-        }catch (IOException e){
+
+        }       catch (IOException e){
             e.printStackTrace();
             System.out.println("Какой-то из потоков не зацепил файл");
         }finally {
