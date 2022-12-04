@@ -1,4 +1,6 @@
-package Lesson_12;
+package Lesson_12.additional;
+
+import Lesson_12.additional.Specialist;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,8 +18,11 @@ public class Util {
     }
 
     public static List<Specialist> newFindByName(List<Specialist>list, String name){
-        list.stream().filter(x->x.getName().startsWith("Vas")).collect(Collectors.toList());
-        return list;
+        //было
+        //list.stream().filter(x->x.getName().startsWith(name)).collect(Collectors.toList());
+        //стало
+        List<Specialist>list1= list.stream().filter(x->x.getName().startsWith(name)).collect(Collectors.toList());
+        return list1;
     }
 
 
