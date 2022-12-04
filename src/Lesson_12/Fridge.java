@@ -26,13 +26,17 @@ public class Fridge {
             System.out.println("не хватает" + (value- products.get(product))+" , вы взяли "+ product);
             return;
         }
+        //Если продукта больше чем берем
         if (products.get(product)>value){
-            System.out.println("нОсталось еще "+(products.get(product)-value)+ " "+ product);
+            System.out.println("Осталось еще "+(products.get(product)-value)+ " "+ product);
+            products.remove(product);
             return;
         }
         //если продукта ровно столько сколько нужно
         if (products.get(product)==value){
-            System.out.println(" " +(products.get(product)));
+            System.out.println("Все продукты забрали");
+            products.remove(product);
+            return;
         }
 
     }

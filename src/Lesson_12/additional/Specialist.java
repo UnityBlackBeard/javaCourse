@@ -1,4 +1,4 @@
-package Lesson_12;
+package Lesson_12.additional;
 
 public class Specialist {
     private String name;
@@ -39,4 +39,13 @@ public class Specialist {
         this.speciality = speciality;
     }
 
+
+    @Override
+    public String toString() {
+        return "Specialist{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", speciality=" + speciality +
+                '}';
+    }
 }

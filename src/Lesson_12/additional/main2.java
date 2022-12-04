@@ -1,4 +1,4 @@
-package Lesson_12;
+package Lesson_12.additional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class main2 {
 
 
         List<Specialist> specs = new ArrayList<>();
-specs.add(specialist1);
+        specs.add(specialist1);
         specs.add(specialist2);
         specs.add(specialist3);
         specs.add(specialist4);
@@ -22,8 +22,9 @@ specs.add(specialist1);
         specs.add(specialist6);
 
 
-        Util.oldFindByName(specs,"Vas");
-        Util.newFindByName(specs,"Nik").forEach();
+       // Util.oldFindByName(specs,"Vas");
+        Util.newFindByName(specs,"Nik").forEach(x-> System.out.println(x));
+
 
     }
 }

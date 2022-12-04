@@ -1,5 +1,7 @@
 package Lesson_12;
 
+import Lesson_12.additional.Day;
+
 import java.util.HashMap;
 import java.util.Map;
 
