@@ -23,8 +23,9 @@ public class main2 {
 
 
        // Util.oldFindByName(specs,"Vas");
-        Util.newFindByName(specs,"Nik").forEach(x-> System.out.println(x));
-
-
+      //  Util.newFindByName(specs,"Nik").forEach(x-> System.out.println(x));
+      //  Util.oldSortByName(specs)
+           // Util.newSortByName(specs).forEach(System.out::println);
+            Util.matchAllSpecialistsSalaryMoreThanTenThousands(specs);
     }
 }
