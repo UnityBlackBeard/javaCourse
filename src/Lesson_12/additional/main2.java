@@ -2,6 +2,8 @@ package Lesson_12.additional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 
 public class main2 {
     public static void main(String[] args) {
@@ -20,6 +22,22 @@ public class main2 {
         specs.add(specialist4);
         specs.add(specialist5);
         specs.add(specialist6);
+
+//        String login =null;
+//        if(login!=null){
+//            System.out.println(login.length());
+//        }
+//        Scanner scanner =new Scanner(System.in);
+//        login=scanner.nextLine();
+//        login=null;
+        Optional <String> opt=Optional.ofNullable("HelloWorld");
+        opt.ifPresent(login-> System.out.println(login));
+
+        String nullName=null;
+//        String name =Optional.ofNullable(nullName).orElse("пользователь");
+//        System.out.println("привет "+name);
+
+        String name =Optional.ofNullable(nullName).orElseThrow(IllegalArgumentException::new);
 
 
        // Util.oldFindByName(specs,"Vas");
